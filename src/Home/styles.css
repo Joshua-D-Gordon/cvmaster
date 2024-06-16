@@ -1,4 +1,4 @@
-/* src/styles.css */
+/* src/Home/styles.css */
 
 body {
     font-family: 'Arial', sans-serif;
@@ -8,7 +8,7 @@ body {
   }
   
   .header {
-    background-color: #03305d;
+    background-color: #5650ff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,12 +54,13 @@ body {
   }
   
   .hero {
-    background-image: url('https://picsum.photos/seed/picsum/1200/300');
+    background-image: url('./Homebanner.png');
     background-size: cover;
     background-position: center;
     padding: 60px 20px;
     color: white;
     text-align: center;
+    height: 450px;
   }
   
   .hero-content {
@@ -80,12 +81,14 @@ body {
   }
   
   .service {
-    background: #f9f9f9;
+    background: #5650ff;
+    color: #f9f9f9;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     flex: 1;
     margin: 0 10px;
+    font-weight: bold;
   }
   
   .documents {
@@ -109,7 +112,7 @@ body {
   }
   
   .tab-button.active {
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid #5650ff;
     font-weight: bold;
   }
   
@@ -140,22 +143,22 @@ body {
   
   .document-actions button {
     background: none;
-    border: 1px solid #4CAF50;
-    color: #4CAF50;
+    border: 1px solid #5650ff;
+    color: #5650ff;
     cursor: pointer;
     padding: 10px;
     border-radius: 4px;
   }
   
   .document-actions button:hover {
-    background: #4CAF50;
+    background: #5650ff;
     color: white;
   }
   
   .load-more {
     background: none;
-    border: 1px solid #4CAF50;
-    color: #4CAF50;
+    border: 1px solid #5650ff;
+    color: #5650ff;
     cursor: pointer;
     padding: 10px;
     border-radius: 4px;
@@ -164,7 +167,13 @@ body {
   }
   
   .load-more:hover {
-    background: #4CAF50;
+    background: #5650ff;
     color: white;
+  }
+  
+  /* Content styles adjusted for sidebar */
+  .content {
+    margin-left: 250px; /* Adjust according to sidebar width */
+    padding:0px;
   }
   
