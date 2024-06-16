@@ -1,0 +1,168 @@
+/* src/styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .nav-button:hover {
+    text-decoration: underline;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: gray;
+  }
+  
+  .hero {
+    background-image: url('https://picsum.photos/seed/picsum/1200/400');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .services {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .service {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .documents {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .tab-button.active {
+    border-bottom: 2px solid #4CAF50;
+    font-weight: bold;
+  }
+  
+  .document-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .document {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .document img {
+    border-radius: 8px;
+  }
+  
+  .document-info {
+    flex: 1;
+  }
+  
+  .document-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .document-actions button {
+    background: none;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .document-actions button:hover {
+    background: #4CAF50;
+    color: white;
+  }
+  
+  .load-more {
+    background: none;
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .load-more:hover {
+    background: #4CAF50;
+    color: white;
+  }
+  

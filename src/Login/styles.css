@@ -1,0 +1,79 @@
+/* src/styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero {
+    background-image: url('https://picsum.photos/seed/picsum/1200/800');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .hero p {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .login-form, .faq, .testimonials {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .login-form input, .login-form button {
+    width: calc(100% - 22px);
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .login-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .login-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .faq h2, .testimonials h2 {
+    margin-top: 0;
+  }
+  
+  .testimonial {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
