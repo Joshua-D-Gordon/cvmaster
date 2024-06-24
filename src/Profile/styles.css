@@ -1,0 +1,91 @@
+/* src/Profile/styles.css */
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #5650ff;
+    font-family: "Audiowide", sans-serif;
+  }
+  
+  .profile-card-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic-page {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .edit-pic-button {
+    background: #5650ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .edit-pic-button:hover {
+    background: #736eff;
+  }
+  
+  .profile-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .profile-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .save-button {
+    background: #5650ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .save-button:hover {
+    background: #736eff;
+  }
+  

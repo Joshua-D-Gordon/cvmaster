@@ -1,0 +1,104 @@
+/* src/JobTracker/styles.css */
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  .jobtracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #5650ff;
+    font-family: "Audiowide", sans-serif;
+    margin-left: 10px; /* Adjust this value to move the title closer to the sidebar */
+  }
+  
+  .toggle-button {
+    background: #5650ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .toggle-button:hover {
+    background: #736eff;
+  }
+  
+  .new-job-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .new-job-form input,
+  .new-job-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .new-job-form button {
+    background: #5650ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .new-job-form button:hover {
+    background: #736eff;
+  }
+  
+  .job-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .job-list th,
+  .job-list td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .job-board {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .board-column {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 4px;
+    flex: 1;
+    min-height: 300px;
+  }
+  
+  .job-card {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-card h4 {
+    margin: 0 0 10px 0;
+  }
+  
+  .job-card p {
+    margin: 0;
+  }
+  

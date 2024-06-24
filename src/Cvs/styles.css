@@ -1,0 +1,88 @@
+/* src/Cvs/styles.css */
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #5650ff;
+    font-family: "Audiowide", sans-serif;
+    margin-left: 10px; /* Adjust this value to move the title closer to the sidebar */
+  }
+  
+  .cv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure four items per row */
+    gap: 20px;
+  }
+  
+  .cv-preview {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .cv-preview img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .cv-preview:hover {
+    transform: scale(1.05);
+  }
+  
+  .cv-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .cv-preview:hover .cv-overlay {
+    opacity: 1;
+  }
+  
+  .cv-button {
+    background: #5650ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .cv-button:hover {
+    background: #736eff;
+  }
+  
+  .load-more {
+    background: none;
+    border: 1px solid #5650ff;
+    color: #5650ff;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  .load-more:hover {
+    background: #5650ff;
+    color: white;
+  }
+  

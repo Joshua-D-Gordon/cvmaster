@@ -30,6 +30,10 @@ const Sidebar = () => {
           <i className="fas fa-home"></i>
           <span className="sidebar-nav-text">Home</span>
         </Link>
+        <Link to="/profile" className="sidebar-nav-item">
+          <i className="fas fas fa-user"></i>
+          <span className="sidebar-nav-text">Profile</span>
+        </Link>
         <Link to="/cvs" className="sidebar-nav-item">
           <i className="fas fa-file-alt"></i>
           <span className="sidebar-nav-text">CV's</span>
@@ -42,6 +46,11 @@ const Sidebar = () => {
           <i className="fas fa-chart-line"></i>
           <span className="sidebar-nav-text">Career Insights</span>
         </Link>
+        <Link to="/pricing" className="sidebar-nav-item">
+          <i className="fas fa-dollar"></i>
+          <span className="sidebar-nav-text">Pricing</span>
+        </Link>
+        
         <Link to="/logout" className="sidebar-nav-item lo">
           <i className="fas fa-sign-out-alt"></i>
           <span className="sidebar-nav-text">Log Out</span>

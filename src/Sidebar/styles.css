@@ -7,7 +7,7 @@
     left: 0;
     height: 100%;
     width: 250px;
-    background-color: #fff7f7;
+    background-color: #f9f9f9;
     color: black;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     font-family: "Audiowide", sans-serif;
     color: #5650ff;
@@ -36,9 +36,17 @@
     border: none;
     color: #5650ff;
     cursor: pointer;
-    font-size: 14px;
-    padding: 5px;
-    margin-right: 10px;
+    padding: 1px; /* Adjusted padding to be more compact */
+    margin-left: 2px; /* Reduced margin */
+    height: 24px; /* Set height */
+    width: 20px; /* Set width */
+    display: flex; /* Align items in the center */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+  }
+
+  .toggle-button .fas {
+    font-size: 14px; /* Set icon size */
   }
   
   .sidebar-nav {
@@ -74,7 +82,7 @@
   .profile-card {
     display: flex;
     align-items: center;
-    background-color: aqua;
+    background-color: #f9f9f9;
     height: 70px;
     width: 100%;
     border-radius: 5px;
@@ -97,7 +105,7 @@
   }
   
   .sidebar-nav-item.lo {
-    margin-top: 460px;
+    margin-top: 420px;
   }
   
   .content {

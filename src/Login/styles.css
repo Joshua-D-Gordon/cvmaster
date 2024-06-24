@@ -8,10 +8,15 @@ body {
   }
   
   header {
-    background-color: #4CAF50;
+    background-color: #5650ff;
     padding: 10px 20px;
     color: white;
-    text-align: center;
+    text-align: left;
+  }
+
+  header h1{
+    font-family: "Audiowide", sans-serif;
+    font-size: 24px;
   }
   
   .hero {
@@ -55,14 +60,15 @@ body {
   }
   
   .login-form button {
-    background-color: #4CAF50;
+    background-color: #5650ff;
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
   }
   
   .login-form button:hover {
-    background-color: #45a049;
+    background-color: #140cff;
   }
   
   .faq h2, .testimonials h2 {

@@ -1,0 +1,75 @@
+/* src/Pricing/styles.css */
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #5650ff;
+    font-family: "Audiowide", sans-serif;
+    text-align: center;
+  }
+  
+  .pricing-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .pricing-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .pricing-card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #5650ff;
+  }
+  
+  .price {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-card ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .choose-plan {
+    background: #5650ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .choose-plan:hover {
+    background: #736eff;
+  }
+  

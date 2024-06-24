@@ -1,0 +1,88 @@
+/* src/CareerInsights/styles.css */
+
+.content {
+    margin-left: 270px; /* Adjust according to sidebar width */
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #5650ff;
+    font-family: "Audiowide", sans-serif;
+    margin-left: 10px; /* Adjust this value to move the title closer to the sidebar */
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .search-results {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .search-result-item:hover {
+    background: #f4f4f4;
+  }
+  
+  .saved-job-titles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .saved-job-title {
+    background: #5650ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .saved-job-title:hover {
+    background: #736eff;
+  }
+  
+  .insights {
+    margin-top: 20px;
+  }
+  
+  .insights h3 {
+    margin-bottom: 10px;
+  }
+  
+  .insights ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .insights li {
+    margin-bottom: 10px;
+  }
+  
+  .insights li a {
+    color: #5650ff;
+    text-decoration: none;
+  }
+  
+  .insights li a:hover {
+    text-decoration: underline;
+  }
+  

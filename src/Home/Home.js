@@ -7,7 +7,11 @@ import './styles.css';
 
 const Home = () => {
   const [user, setUser] = useState(null);
-  const [cvs, setCvs] = useState([]);
+  const [cvs, setCvs] = useState([
+    { title: 'Sample CV 1', lastUpdated: '2023-01-01' },
+    { title: 'Sample CV 2', lastUpdated: '2023-02-01' },
+    { title: 'Sample CV 3', lastUpdated: '2023-03-01' }
+  ]); // Placeholder CVs for testing
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -35,12 +39,6 @@ const Home = () => {
       <Sidebar />
       <div className="content">
         <header className="header">
-          <div className="logo">CV Master</div>
-          <nav className="nav">
-            <button className="nav-button">Find a New Job</button>
-            <button className="nav-button">Excel at Your Job</button>
-            <button className="nav-button">Change Career</button>
-          </nav>
           <div className="profile">
             <div className="profile-pic"></div>
             <span>Career Profile 90%</span>
@@ -68,21 +66,25 @@ const Home = () => {
               <button className="tab-button">Cover Letters</button>
             </div>
             <div className="document-list">
-              {cvs.map((cv, index) => (
-                <div className="document" key={index}>
-                  <img src="https://picsum.photos/100/140" alt="Document" />
-                  <div className="document-info">
-                    <h3>{cv.title}</h3>
-                    <span>{cv.lastUpdated}</span>
-                    <div className="document-actions">
-                      <button>Tailor to job listing</button>
-                      <button>Share a link</button>
-                      <button>Download PDF</button>
-                      <button>Export to DOCX</button>
+              {cvs.length > 0 ? (
+                cvs.map((cv, index) => (
+                  <div className="document" key={index}>
+                    <img src="https://picsum.photos/100/140" alt="Document" />
+                    <div className="document-info">
+                      <h3>{cv.title}</h3>
+                      <span>{cv.lastUpdated}</span>
+                      <div className="document-actions">
+                        <button>Tailor to job listing</button>
+                        <button>Share a link</button>
+                        <button>Download PDF</button>
+                        <button>Export to DOCX</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p>No CVs available.</p>
+              )}
             </div>
             <button className="load-more">Show 28 more resumes</button>
           </div>
