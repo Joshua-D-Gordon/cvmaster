@@ -1,23 +1,19 @@
 // src/Home.js
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../firebase';
-import { doc, getDoc } from "firebase/firestore";
+import { ref, get } from "firebase/database";
 import Sidebar from '../Sidebar/Sidebar';
 import './styles.css';
 
 const Home = () => {
   const [user, setUser] = useState(null);
-  const [cvs, setCvs] = useState([
-    { title: 'Sample CV 1', lastUpdated: '2023-01-01' },
-    { title: 'Sample CV 2', lastUpdated: '2023-02-01' },
-    { title: 'Sample CV 3', lastUpdated: '2023-03-01' }
-  ]); // Placeholder CVs for testing
+  const [cvs, setCvs] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
       if (user) {
         setUser(user);
-        fetchUserCvs(user.uid);
+        await fetchUserCvs(user.uid);
       } else {
         window.location.href = "/login";
       }
@@ -27,10 +23,12 @@ const Home = () => {
   }, []);
 
   const fetchUserCvs = async (uid) => {
-    const userRef = doc(db, "users", uid);
-    const userSnap = await getDoc(userRef);
-    if (userSnap.exists()) {
-      setCvs(userSnap.data().cvs);
+    const userRef = ref(db, `users/${uid}/cvs`);
+    const snapshot = await get(userRef);
+    if (snapshot.exists()) {
+      const cvsData = snapshot.val();
+      const cvsList = cvsData ? Object.values(cvsData) : [];
+      setCvs(cvsList);
     }
   };
 

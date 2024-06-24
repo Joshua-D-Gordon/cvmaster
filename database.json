@@ -1,0 +1,67 @@
+{
+    "users": {
+      "userId1": {
+        "email": "user1@example.com",
+        "displayName": "User One",
+        "photoURL": "https://example.com/photo1.jpg",
+        "cvs": {
+          "cvId1": {
+            "title": "CV 1",
+            "content": "Content of CV 1",
+            "lastUpdated": "2024-01-01T12:00:00Z"
+          },
+          "cvId2": {
+            "title": "CV 2",
+            "content": "Content of CV 2",
+            "lastUpdated": "2024-01-02T12:00:00Z"
+          }
+        },
+        "jobTracker": {
+          "jobId1": {
+            "jobTitle": "Software Engineer",
+            "company": "Company A",
+            "dateApplied": "2024-01-01",
+            "status": "applied"
+          },
+          "jobId2": {
+            "jobTitle": "Product Manager",
+            "company": "Company B",
+            "dateApplied": "2024-01-03",
+            "status": "in progress"
+          }
+        }
+      },
+      "userId2": {
+        "email": "user2@example.com",
+        "displayName": "User Two",
+        "photoURL": "https://example.com/photo2.jpg",
+        "cvs": {
+          "cvId1": {
+            "title": "CV 1",
+            "content": "Content of CV 1",
+            "lastUpdated": "2024-01-01T12:00:00Z"
+          },
+          "cvId2": {
+            "title": "CV 2",
+            "content": "Content of CV 2",
+            "lastUpdated": "2024-01-02T12:00:00Z"
+          }
+        },
+        "jobTracker": {
+          "jobId1": {
+            "jobTitle": "Data Analyst",
+            "company": "Company C",
+            "dateApplied": "2024-01-04",
+            "status": "completed"
+          },
+          "jobId2": {
+            "jobTitle": "Marketing Specialist",
+            "company": "Company D",
+            "dateApplied": "2024-01-05",
+            "status": "rejected"
+          }
+        }
+      }
+    }
+  }
+  

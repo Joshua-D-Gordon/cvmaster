@@ -1,7 +1,8 @@
 // src/Login.js
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
+import { ref, set, get } from 'firebase/database';
 import './styles.css';
 
 const Login = () => {
@@ -9,11 +10,37 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const saveUserToDatabase = async (user) => {
+    console.log('Saving user to database:', user); // Debugging log
+    const userRef = ref(db, 'users/' + user.uid);
+    const snapshot = await get(userRef);
+
+    if (!snapshot.exists()) {
+      console.log('User does not exist, creating new user entry');
+      await set(userRef, {
+        uid: user.uid,
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL || '',
+        cvs: {},
+        jobTracker: {}
+      });
+      console.log('User saved to database successfully');
+    } else {
+      console.log('User already exists in the database');
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log('Logged in user:', user); // Debugging log
+      await saveUserToDatabase(user);
+      window.location.href = '/home';
     } catch (error) {
+      console.error('Error logging in:', error); // Debugging log
       setError(error.message);
     }
   };
@@ -21,8 +48,13 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Google logged in user:', user); // Debugging log
+      await saveUserToDatabase(user);
+      window.location.href = '/home';
     } catch (error) {
+      console.error('Error logging in with Google:', error); // Debugging log
       setError(error.message);
     }
   };
@@ -30,8 +62,13 @@ const Login = () => {
   const handleFacebookLogin = async () => {
     const provider = new FacebookAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Facebook logged in user:', user); // Debugging log
+      await saveUserToDatabase(user);
+      window.location.href = '/home';
     } catch (error) {
+      console.error('Error logging in with Facebook:', error); // Debugging log
       setError(error.message);
     }
   };

@@ -1,13 +1,41 @@
 // src/Sidebar/Sidebar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth, db } from '../firebase';
+import { ref, get } from 'firebase/database';
+import { signOut } from 'firebase/auth';
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [profileData, setProfileData] = useState({ cvsCount: 0, jobsCount: 0 });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      const user = auth.currentUser;
+      if (user) {
+        const userRef = ref(db, `users/${user.uid}`);
+        const snapshot = await get(userRef);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setProfileData({
+            cvsCount: data.cvs ? Object.keys(data.cvs).length : 0,
+            jobsCount: data.jobTracker ? Object.keys(data.jobTracker).length : 0,
+          });
+        }
+      }
+    };
+    fetchProfileData();
+  }, []);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const handleLogout = async () => {
+    await signOut(auth);
+    navigate('/login');
   };
 
   return (
@@ -21,8 +49,8 @@ const Sidebar = () => {
       <div className="profile-card">
         <div className="profile-pic"></div>
         <div className="profile-card-data">
-          <div className="cv-amount"># of CV's: 10</div>
-          <div className="jobs-amount"># of jobs applied: 50</div>
+          <div className="cv-amount"># of CV's: {profileData.cvsCount}</div>
+          <div className="jobs-amount"># of jobs applied: {profileData.jobsCount}</div>
         </div>
       </div>
       <nav className="sidebar-nav">
@@ -51,7 +79,7 @@ const Sidebar = () => {
           <span className="sidebar-nav-text">Pricing</span>
         </Link>
         
-        <Link to="/logout" className="sidebar-nav-item lo">
+        <Link to="/logout" onClick={handleLogout} className="sidebar-nav-item lo">
           <i className="fas fa-sign-out-alt"></i>
           <span className="sidebar-nav-text">Log Out</span>
         </Link>
