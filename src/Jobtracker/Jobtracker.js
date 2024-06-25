@@ -1,19 +1,39 @@
 // src/JobTracker/JobTracker.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import Sidebar from '../Sidebar/Sidebar';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
-const initialJobs = [
-  { id: '1', title: 'Software Engineer', company: 'Google', dateApplied: '2023-06-20', status: 'Applied' },
-  { id: '2', title: 'Product Manager', company: 'Facebook', dateApplied: '2023-06-21', status: 'In Progress' },
-  // Add more initial job entries here
-];
+import { auth, db } from '../firebase';
+import { ref, get, set } from 'firebase/database';
 
 const JobTracker = () => {
   const [view, setView] = useState('List');
-  const [jobs, setJobs] = useState(initialJobs);
+  const [jobs, setJobs] = useState([]);
   const [newJob, setNewJob] = useState({ title: '', company: '', dateApplied: '', status: 'Applied' });
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        await fetchUserJobs(user.uid);
+      } else {
+        window.location.href = '/login';
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const fetchUserJobs = async (uid) => {
+    const jobsRef = ref(db, `users/${uid}/jobTracker`);
+    const snapshot = await get(jobsRef);
+    if (snapshot.exists()) {
+      const jobsData = snapshot.val();
+      const jobsArray = Object.keys(jobsData).map(key => ({ id: key, ...jobsData[key] }));
+      setJobs(jobsArray);
+    }
+  };
 
   const toggleView = () => {
     setView(view === 'List' ? 'Board' : 'List');
@@ -27,12 +47,18 @@ const JobTracker = () => {
     }));
   };
 
-  const addJob = () => {
-    setJobs([...jobs, { ...newJob, id: (jobs.length + 1).toString() }]);
-    setNewJob({ title: '', company: '', dateApplied: '', status: 'Applied' });
+  const addJob = async () => {
+    if (user) {
+      const jobId = new Date().getTime().toString();
+      const job = { ...newJob, id: jobId };
+      const jobsRef = ref(db, `users/${user.uid}/jobTracker/${jobId}`);
+      await set(jobsRef, job);
+      setJobs([...jobs, job]);
+      setNewJob({ title: '', company: '', dateApplied: '', status: 'Applied' });
+    }
   };
 
-  const handleDragEnd = (result) => {
+  const handleDragEnd = async (result) => {
     if (!result.destination) return;
 
     const items = Array.from(jobs);
@@ -41,6 +67,11 @@ const JobTracker = () => {
     items.splice(result.destination.index, 0, reorderedItem);
 
     setJobs(items);
+
+    if (user) {
+      const jobRef = ref(db, `users/${user.uid}/jobTracker/${reorderedItem.id}`);
+      await set(jobRef, reorderedItem);
+    }
   };
 
   return (

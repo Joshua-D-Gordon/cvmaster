@@ -8,6 +8,8 @@ import JobTracker from './Jobtracker/Jobtracker';
 import CareerInsights from './Careerinsights/Careerinsights';
 import Profile from './Profile/Profile';
 import Pricing from './Pricing/Pricing';
+import CvBuilder from './Cvbuilder/CvBuilder';
+
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
@@ -38,6 +40,8 @@ function App() {
         <Route path="/career-insights" element={currentUser ? <CareerInsights /> : <Navigate to="/login" />} />
         <Route path="/profile" element={currentUser ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/pricing" element={currentUser ? <Pricing /> : <Navigate to="/pricing" />} />
+        <Route path="/cvbuilder" element={currentUser ? <CvBuilder /> : <Navigate to="/cvbuilder" />} />
+
         <Route path="*" element={<Navigate to={currentUser ? "/home" : "/login"} />} />
       </Routes>
     </Router>

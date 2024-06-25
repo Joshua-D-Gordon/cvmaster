@@ -78,6 +78,10 @@ const Sidebar = () => {
           <i className="fas fa-dollar"></i>
           <span className="sidebar-nav-text">Pricing</span>
         </Link>
+        <Link to="/cvbuilder" className="sidebar-nav-item">
+          <i className="fas "></i>
+          <span className="sidebar-nav-text">cv builder</span>
+        </Link>
         
         <Link to="/logout" onClick={handleLogout} className="sidebar-nav-item lo">
           <i className="fas fa-sign-out-alt"></i>

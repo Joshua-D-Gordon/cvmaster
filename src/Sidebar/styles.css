@@ -36,10 +36,6 @@
     border: none;
     color: #5650ff;
     cursor: pointer;
-    padding: 1px; /* Adjusted padding to be more compact */
-    margin-left: 2px; /* Reduced margin */
-    height: 24px; /* Set height */
-    width: 20px; /* Set width */
     display: flex; /* Align items in the center */
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center items horizontally */
